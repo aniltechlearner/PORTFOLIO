@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/layout.astro'
+import Button from '../components/Button.astro'
+import BlogsSection from '../components/BlogsSection.astro'
+import ProjectsSection from '../components/ProjectsSection.astro'
+import ProductsSection from '../components/home/ProductsSection.astro'
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Abhilash Bijalwan',
+  jobTitle: 'Product | Tech | Builder',
+  description:
+    'Digital gardener and full-stack developer specializing in React, TypeScript, Go, and modern web technologies.',
+  url: 'https://AbhilashBijalwan.com',
+  sameAs: [
+    'https://github.com/sohhamm',
+    'https://linkedin.com/in/sohhamm',
+    'https://twitter.com/AbhilashBijalwantech',
+    'https://instagram.com/comingsoon..',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dehradun',
+    addressRegion: 'Karnataka',
+    addressCountry: 'India',
+  },
+  knowsAbout: [
+    'React',
+    'TypeScript',
+    'JavaScript',
+    'Go',
+    'Node.js',
+    'PostgreSQL',
+    'Full-Stack Development',
+    'Web Development',
+    'Software Engineering',
+  ],
+}
+
+const content = {
+  title: 'Abhilash Bijalwan - Digital Gardener & Full-Stack Developer',
+  description:
+    'I craft impactful software experiences with code. Full-stack developer specializing in React, TypeScript, Go, and modern web technologies. Based in Dehradun, working worldwide.',
+  ogImage: '/og-home.jpg',
+  structuredData,
+}
+---
+
+<!-- src/pages/index.astro - Homepage with structured data -->
+<Layout content={content}>
+  <section class='hero-section'>
+    <div class='hero-text'>
+      <h1>
+        I'm a <span>digital gardener</span>, and I
+        <span class='italic-text'>craft impactful software experiences</span>
+        with code.
+      </h1>
+      <p>
+        I'll grow your ideas from tiny seeds into towering trees 🌱.<br /> Already have a garden? Let's
+        transform it into a thriving forest 🌲.
+      </p>
+      <Button href='https://cal.com/Abhilash-Bijalwan-work'>Let's grow together!</Button>
+    </div>
+  </section>
+
+  <ProductsSection />
+  <ProjectsSection isHomePage />
+  <BlogsSection />
+
+  <style>
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 65dvh;
+      color: #ffffff;
+    }
+
+    .hero-section::selection {
+      background: limegreen;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 4.5rem;
+      font-weight: 400;
+      line-height: 100%;
+      letter-spacing: -0.36rem;
+    }
+
+    .italic-text {
+      font-style: italic;
+      color: #7f7f7f;
+    }
+
+    p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #71717a;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3.5rem;
+        letter-spacing: -0.28rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: -0.2rem;
+      }
+    }
+  </style>
+</Layout>
